@@ -57,7 +57,10 @@ testlogger {
     theme = MOCHA
 }
 
-jib.to.image = "liccioni/gateway"
+jib.to {
+    image = "liccioni/gateway"
+    tags = setOf("latest", System.getenv("GITHUB_SHA"))
+}
 
 tasks.named("build") {
     dependsOn(":jib")
