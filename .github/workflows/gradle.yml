@@ -40,5 +40,7 @@ jobs:
     - name: Commit release
       run: |
         git status
+        git add -A
+        git commit -m '[automated commit] add configs generated using jsonnet & GitHub workflow'
         git push
 
