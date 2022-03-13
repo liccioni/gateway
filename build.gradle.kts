@@ -64,8 +64,7 @@ jib.to {
 }
 
 task("myTask"){
+    println("Project version: ${project.version}")
     println("Semver: ${semver.semVersion}")
     println("Semver Info: ${semver.infoVersion}")
-    println("Project version: ${project.version}")
-
 }
