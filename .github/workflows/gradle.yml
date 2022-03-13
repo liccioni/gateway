@@ -38,7 +38,19 @@ jobs:
     - name: Build with Gradle
       uses: gradle/gradle-build-action@v2
       with:
-        arguments: build releaseVersion printVersion jib
+        arguments: build
+    - name: Create release with Gradle
+      uses: gradle/gradle-build-action@v2
+      with:
+        arguments: releaseVersion
+    - name: Print version with Gradle
+      uses: gradle/gradle-build-action@v2
+      with:
+        arguments: printVersion
+    - name: Push to docker with Gradle
+      uses: gradle/gradle-build-action@v2
+      with:
+        arguments: jib
     - name: Archive test report
       uses: actions/upload-artifact@v2
       with:
