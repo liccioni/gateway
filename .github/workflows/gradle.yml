@@ -39,6 +39,6 @@ jobs:
         arguments: build releaseVersion jib
     - name: Commit release
       run: |
-        git satus
+        git status
         git push
 
