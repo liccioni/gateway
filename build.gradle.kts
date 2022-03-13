@@ -62,6 +62,6 @@ jib.to {
     tags = setOf("latest", System.getenv("GITHUB_SHA"))
 }
 
-tasks.named("build") {
-    dependsOn(":jib")
-}
+//tasks.named("build") {
+//    dependsOn(":jib")
+//}
