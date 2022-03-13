@@ -1,2 +1,3 @@
 deploy:
-  - helm upgrade --install gateway chart --set image.tag=${OKTETO_GIT_COMMIT}
+#  - helm upgrade --install gateway chart --set image.tag=${OKTETO_GIT_COMMIT}
+  - helm upgrade --install gateway chart --set image.tag=${APP_VERSION}

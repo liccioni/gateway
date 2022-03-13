@@ -63,8 +63,13 @@ jib.to {
     tags = setOf("latest", project.version.toString())
 }
 
-task("myTask"){
-    println("Project version: ${project.version}")
-    println("Semver Info: ${semver.infoVersion}")
-    println("Semver: ${semver.semVersion}")
-}
+/*task("updateChartVersion") {
+
+    val readLines = file("chart/Chart.yaml").readLines()
+    file("chart/Chart.yaml").bufferedWriter().use { writer ->
+        readLines.dropLast(1).forEach {
+            writer.appendLine(it)
+        }
+        writer.appendLine("appVersion: \"${project.version}\"")
+    }
+}*/
