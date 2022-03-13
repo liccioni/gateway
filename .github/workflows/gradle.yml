@@ -18,7 +18,7 @@ env:
 
 jobs:
   build:
-
+    if: github.actor !== 'ci_liccioni'
     runs-on: ubuntu-latest
 
     steps:
@@ -39,6 +39,8 @@ jobs:
         arguments: build releaseVersion jib
     - name: Commit release
       run: |
+        git config --global user.name 'ci_liccioni'
+        git config --global user.email 'ci@liccioni.net'
         git status
         git add -A
         git commit -m '[automated commit] add configs generated using jsonnet & GitHub workflow'
