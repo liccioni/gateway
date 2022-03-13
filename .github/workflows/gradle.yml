@@ -33,11 +33,9 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+        cache: gradle
     - name: Build with Gradle
-      uses: gradle/gradle-build-action@937999e9cc2425eddc7fd62d1053baf041147db7
-      with:
-#        arguments: build releaseVersion jib
-        arguments: releaseVersion
+      run: ./gradlew build --no-daemon
     - name: Commit release
       run: |
         git config --global user.name 'ci_liccioni'
