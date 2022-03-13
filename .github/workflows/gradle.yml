@@ -33,13 +33,14 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        cache: gradle
     - name: Build with Gradle
-      run: ./gradlew build --no-daemon
-    - name: Commit release
-      run: |
-        git config --global user.name 'ci_liccioni'
-        git config --global user.email 'ci@liccioni.net'
-        git status
-        git push
+      uses: gradle/gradle-build-action@v2
+      with:
+        arguments: build
+#    - name: Commit release
+#      run: |
+#        git config --global user.name 'ci_liccioni'
+#        git config --global user.email 'ci@liccioni.net'
+#        git status
+#        git push
 
