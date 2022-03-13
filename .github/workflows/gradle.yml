@@ -42,7 +42,5 @@ jobs:
         git config --global user.name 'ci_liccioni'
         git config --global user.email 'ci@liccioni.net'
         git status
-        git add -A
-        git commit -m '[automated commit] add configs generated using jsonnet & GitHub workflow'
         git push
 
