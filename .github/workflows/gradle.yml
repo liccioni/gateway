@@ -38,16 +38,16 @@ jobs:
     - name: Build with Gradle
       uses: gradle/gradle-build-action@v2
       with:
-        arguments: build releaseVersion printVersion
+        arguments: build releaseVersion printVersion jib
     - name: Archive test report
       uses: actions/upload-artifact@v2
       with:
         name: Test report
         path: build/reports/tests/test
-#    - name: Commit release
-#      run: |
-#        git config --global user.name 'ci_liccioni'
-#        git config --global user.email 'ci@liccioni.net'
-#        git status
-#        git push
+    - name: Commit release
+      run: |
+        git config --global user.name 'ci_liccioni'
+        git config --global user.email 'ci@liccioni.net'
+        git status
+        git push
 
