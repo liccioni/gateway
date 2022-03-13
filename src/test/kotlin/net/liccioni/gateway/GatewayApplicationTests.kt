@@ -8,6 +8,6 @@ class GatewayApplicationTests {
 
     @Test
     fun contextLoads() {
+        println("hello world")
     }
-
 }
