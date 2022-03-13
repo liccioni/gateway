@@ -60,5 +60,12 @@ testlogger {
 
 jib.to {
     image = "liccioni/gateway"
-    tags = setOf("latest", System.getenv("GITHUB_SHA"), project.version.toString())
+    tags = setOf("latest", semver.semVersion.toString())
+}
+
+task("myTask"){
+    println("Semver: ${semver.semVersion}")
+    println("Semver Info: ${semver.infoVersion}")
+    println("Project version: ${project.version}")
+
 }
