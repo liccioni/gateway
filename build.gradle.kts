@@ -60,7 +60,7 @@ testlogger {
 
 jib.to {
     image = "liccioni/gateway"
-    tags = setOf("latest", semver.semVersion.toString())
+    tags = setOf("latest", project.version.toString())
 }
 
 task("myTask"){
