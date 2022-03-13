@@ -2,6 +2,7 @@ import com.adarshr.gradle.testlogger.theme.ThemeType.MOCHA
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
+    id("com.github.jmongard.git-semver-plugin")  version "0.4.2"
     id("com.google.cloud.tools.jib") version "3.2.0"
     id("com.adarshr.test-logger") version "3.2.0"
     id("org.springframework.boot") version "2.6.4"
@@ -11,7 +12,7 @@ plugins {
 }
 
 group = "net.liccioni"
-version = "0.0.1-SNAPSHOT"
+version = semver.version
 java.sourceCompatibility = JavaVersion.VERSION_17
 
 configurations {
@@ -61,7 +62,3 @@ jib.to {
     image = "liccioni/gateway"
     tags = setOf("latest", System.getenv("GITHUB_SHA"))
 }
-
-//tasks.named("build") {
-//    dependsOn(":jib")
-//}
