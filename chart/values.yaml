@@ -77,3 +77,7 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+app:
+  account_url: "http://account-service"
+  frontend_url: "frontend:3000"
