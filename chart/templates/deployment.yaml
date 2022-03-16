@@ -35,7 +35,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: "ACCOUNT_SERVICE"
-              value: { { .Values.app.account_url | quote } }
+              value: {{ .Values.app.account_url | quote }}
           ports:
             - name: http
               containerPort: 8080
