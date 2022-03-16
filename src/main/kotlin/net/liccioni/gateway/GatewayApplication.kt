@@ -23,7 +23,8 @@ class GatewayApplication {
     fun myRoutes(builder: RouteLocatorBuilder): RouteLocator = builder.routes().route { p ->
         p.path("/api/persons/**", "/api/profile/persons/**")
             .filters { f ->
-                f.setHostHeader(frontendHostName).addRequestHeader("x-forwarded-port", frontendPort)
+                f.preserveHostHeader()
+//                f.setHostHeader(frontendHostName).addRequestHeader("x-forwarded-port", frontendPort)
             }
             .uri(accountServiceUrl)
     }.build()
