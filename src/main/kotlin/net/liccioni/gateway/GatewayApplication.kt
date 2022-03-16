@@ -15,7 +15,7 @@ class GatewayApplication {
 
     @Bean
     fun myRoutes(builder: RouteLocatorBuilder): RouteLocator = builder.routes().route { p ->
-        p.path("/api/persons/**", "/api/profile/persons/**")
+        p.path("/api/account/**")
             .filters { f -> f.preserveHostHeader() }
             .uri(accountServiceUrl)
     }.build()
