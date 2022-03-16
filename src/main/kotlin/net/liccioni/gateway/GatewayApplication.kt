@@ -10,22 +10,13 @@ import org.springframework.context.annotation.Bean
 @SpringBootApplication
 class GatewayApplication {
 
-    @Value("\${FRONTEND_HOST:frontend}")
-    private lateinit var frontendHostName: String
-
-    @Value("\${FRONTEND_PORT:3000}")
-    private lateinit var frontendPort: String
-
     @Value("\${ACCOUNT_SERVICE:http://localhost:8082}")
     private lateinit var accountServiceUrl: String
 
     @Bean
     fun myRoutes(builder: RouteLocatorBuilder): RouteLocator = builder.routes().route { p ->
         p.path("/api/persons/**", "/api/profile/persons/**")
-            .filters { f ->
-                f.preserveHostHeader()
-//                f.setHostHeader(frontendHostName).addRequestHeader("x-forwarded-port", frontendPort)
-            }
+            .filters { f -> f.preserveHostHeader() }
             .uri(accountServiceUrl)
     }.build()
 }
